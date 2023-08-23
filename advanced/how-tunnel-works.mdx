@@ -1,0 +1,71 @@
+---
+title: 'How Tunnel Works'
+description: 'An advanced overview of how Tunnel works, for the hackers'
+---
+
+## Zero-Configuration Proxy
+
+At its core, Tunnel is a proxy that forwards your browser's HTTP requests to your local application, retrieves the local application's HTTP responses, and sends these responses back to the browser.
+
+Proxying requests through a server to a local application isn't new, nor is it complex. In fact, there are many open-source projects that do this, and they all work fine for very simple applications and use cases.
+
+However, when it comes to using these alternatives with non-trivial local applications, this naive approach starts breaking down. Apps no longer become "online in one line," but instead require hardcoded temporary URLs, janky workarounds for CORS issues, and tedious maintenance of complex configuration files.
+
+Instead of taking a naive approach to proxying, Tunnel takes advantage of its ability to modify your application's HTTP responses. For example, if it finds the following line in your JavaScript code:
+
+```js
+button.addEventListener('click', () => {
+	window.location = 'http://localhost:3000/play';
+});
+```
+
+It will automatically transform it to the following code before sending it to your browser:
+
+```js
+button.addEventListener('click', () => {
+	window.location = 'https://your-url.tunnelapp.dev/play';
+});
+```
+
+<Info>
+	Note that the example above is highly simplified; Tunnel's code
+	transformations are much more robust than a simple call to `str.replace()`,
+	including runtime-based transformations so that the above redirect fix still
+	works when you assign an arbitrary variable to `window.location`.
+</Info>
+
+Through these transformations, Tunnel is able to make your code run exactly the same as it does on a localhost URL. This is the key insight behind Tunnel that allows you to take your local application online with zero configuration or code changes required.
+
+## Embedded Collaboration Tools
+
+A key benefit of Tunnel is the ability to work and collaborate from the same browser tab that's running your application. If you want to give feedback on a part of the website, you can leave a comment directly on those elements inside a Tunnel instead of sending screenshots or recordings.
+
+<Info>
+	These feedback comments are scoped to the underlying HTML element, so they
+	appear in the correct place on different screen sizes and when the browser is
+	resized!
+</Info>
+
+To support this concept of "embedded collaboration," Tunnel adds a set of collaboration tools (which we affectionally call "the pill") to every Tunnel application. These tools are dynamically added with JavaScript and isolated using a [Web Component](https://developer.mozilla.org/en-US/docs/Web/API/Web_components), so they should never interfere with your website's functionality.
+
+The pill's state is synchronized with our database using our internal APIs, so any comments you leave on the website will also show up in your Tunnel dashboard.
+
+## Optimized Page Loads
+
+<Info>
+	This feature is currently under active development and is not yet being
+	applied for new Tunnels.
+</Info>
+
+Most tunneling services re-send the entire HTTP response on each page load. This naive approach results in slow page load times if either the host or the viewer of the Tunnel application has a slow internet connection. For local applications, this problem is exacerbated by the large payload size in development and by the intentional cache-busting behavior of many web frameworks.
+
+To solve the problem of slow page loads, Tunnel maintains its own intelligent cache on a per-tunnel basis. Since the majority of code in development remains the same, Tunnel maintains a set of hashes on the server that map to certain code chunks. If a section of code remains the same on subsequent requests, Tunnel will instead send the hash instead of the raw source code, significantly reducing the amount of data sent to and from the server. For the tradeoff of a slightly longer initial load time (for sending the hashes), subsequent page reloads and navigations become near-instant, even on slow network connections.
+
+<Info>
+Interested in working at Tunnel? Drop us a note.
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0byI6IkRhdmlkLCBMZW9uLCBhbmQgUnlh
+biIsImZyb20iOiJZb3UiLCJlbWFpbCI6ImNhcmVlcnNAdHVubmVsLmRldiJ9.IydThH2vIGRd
+Z_arpeqbb66JjCtYNjl2WtHtWWd2Zqo
+
+</Info>
