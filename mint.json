@@ -1,94 +1,95 @@
 {
-	"$schema": "https://mintlify.com/schema.json",
-	"name": "Tunnel",
-	"logo": {
-		"dark": "/assets/tunnel-light.svg",
-		"light": "/assets/tunnel-dark.svg"
-	},
-	"favicon": "/assets/favicon.png",
-	"colors": {
-		"primary": "#8277E5",
-		"light": "#8277E5",
-		"dark": "#8277E5"
-	},
-	"topbarCtaButton": {
-		"name": "Get Started",
-		"url": "https://tunnel.dev/tunnels"
-	},
-	"anchors": [
-		{
-			"name": "GitHub",
-			"icon": "github",
-			"url": "https://github.com/Tunnel-Labs"
-		},
-		{
-			"name": "Discord",
-			"icon": "discord",
-			"url": "https://discord.gg/zMw6ZF2qCf"
-		}
-	],
-	"navigation": [
-		{
-			"group": "Introduction",
-			"pages": ["introduction/what-is-tunnel"]
-		},
-		{
-			"group": "Features",
-			"pages": [
-				{
-					"group": "Collaboration",
-					"pages": [
-						"features/collaboration/hot-reloading",
-						"features/collaboration/cursors",
-						"features/collaboration/comments",
-						"features/collaboration/inbox",
-						"features/collaboration/video-chat",
-						"features/collaboration/vscode-live-share"
-					]
-				},
-				{
-					"group": "Organizations",
-					"pages": [
-						"features/organizations/organization-tunnels-dashboard",
-						"features/organizations/organization-inbox"
-					]
-				},
-				{
-					"group": "Security",
-					"pages": ["features/security/viewer-permissions"]
-				}
-			]
-		},
-		{
-			"group": "CLI",
-			"pages": [
-				"cli/installation",
-				{
-					"group": "Commands",
-					"pages": [
-						{
-							"group": "Authentication",
-							"pages": [
-								"cli/commands/authentication/login",
-								"cli/commands/authentication/logout",
-								"cli/commands/authentication/whoami"
-							]
-						},
-						"cli/commands/tunnel",
-						"cli/commands/share",
-						"cli/commands/delete",
-						"cli/commands/help"
-					]
-				}
-			]
-		},
-		{
-			"group": "Advanced",
-			"pages": ["advanced/how-tunnel-works"]
-		}
-	],
-	"footerSocials": {
-		"github": "https://github.com/Tunnel-Labs",
-		"discord": "https://discord.gg/zMw6ZF2qCf"
-	}
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Tunnel",
+  "logo": {
+    "dark": "/assets/tunnel-light.svg",
+    "light": "/assets/tunnel-dark.svg"
+  },
+  "favicon": "/assets/favicon.png",
+  "colors": {
+    "primary": "#8277E5",
+    "light": "#8277E5",
+    "dark": "#8277E5"
+  },
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://tunnel.dev/tunnels"
+  },
+  "anchors": [
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/Tunnel-Labs"
+    },
+    {
+      "name": "Discord",
+      "icon": "discord",
+      "url": "https://discord.gg/zMw6ZF2qCf"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Introduction",
+      "pages": ["introduction/what-is-tunnel"]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        {
+          "group": "Collaboration",
+          "pages": [
+            "features/collaboration/hot-reloading",
+            "features/collaboration/cursors",
+            "features/collaboration/comments",
+            "features/collaboration/inbox",
+            "features/collaboration/video-chat",
+            "features/collaboration/vscode-live-share"
+          ]
+        },
+        {
+          "group": "Organizations",
+          "pages": [
+            "features/organizations/organization-tunnels-dashboard",
+            "features/organizations/organization-inbox"
+          ]
+        },
+        {
+          "group": "Security",
+          "pages": ["features/security/viewer-permissions"]
+        }
+      ]
+    },
+    {
+      "group": "CLI",
+      "pages": [
+        "cli/installation",
+        {
+          "group": "Commands",
+          "pages": [
+            {
+              "group": "Authentication",
+              "pages": [
+                "cli/commands/authentication/login",
+                "cli/commands/authentication/logout",
+                "cli/commands/authentication/whoami"
+              ]
+            },
+            "cli/commands/tunnel",
+            "cli/commands/share",
+            "cli/commands/delete",
+            "cli/commands/help",
+            "cli/commands/docs"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Advanced",
+      "pages": ["advanced/how-tunnel-works"]
+    }
+  ],
+  "footerSocials": {
+    "github": "https://github.com/Tunnel-Labs",
+    "discord": "https://discord.gg/zMw6ZF2qCf"
+  }
 }
