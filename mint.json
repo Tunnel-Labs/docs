@@ -30,7 +30,7 @@
   "navigation": [
     {
       "group": "Introduction",
-      "pages": ["introduction/what-is-tunnel", "introduction/quickstart"]
+      "pages": ["introduction/what-is-tunnel", "introduction/quickstart", "introduction/contributing"]
     },
     {
       "group": "Features",
