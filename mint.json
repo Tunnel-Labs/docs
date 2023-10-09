@@ -30,7 +30,11 @@
   "navigation": [
     {
       "group": "Introduction",
-      "pages": ["introduction/what-is-tunnel", "introduction/quickstart", "introduction/contributing"]
+      "pages": [
+        "introduction/what-is-tunnel",
+        "introduction/quickstart",
+        "introduction/contributing"
+      ]
     },
     {
       "group": "Features",
@@ -63,17 +67,11 @@
       "group": "CLI",
       "pages": [
         "cli/installation",
+        "cli/wrapper",
         {
           "group": "Commands",
           "pages": [
-            {
-              "group": "Authentication",
-              "pages": [
-                "cli/commands/authentication/login",
-                "cli/commands/authentication/logout",
-                "cli/commands/authentication/whoami"
-              ]
-            },
+            "cli/commands/auth",
             "cli/commands/tunnel",
             "cli/commands/share",
             "cli/commands/delete",
