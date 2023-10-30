@@ -41,9 +41,7 @@
             "features/collaboration/hot-reloading",
             "features/collaboration/cursors",
             "features/collaboration/comments",
-            "features/collaboration/inbox",
-            "features/collaboration/video-chat",
-            "features/collaboration/vscode-live-share"
+            "features/collaboration/inbox"
           ]
         },
         {
