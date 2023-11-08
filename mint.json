@@ -27,10 +27,29 @@
       "url": "https://discord.gg/zMw6ZF2qCf"
     }
   ],
+  "tabs": [
+    {
+      "name": "CLI",
+      "url": "cli"
+    },
+    {
+      "name": "SDKs",
+      "url": "sdks"
+    }
+  ],
   "navigation": [
     {
       "group": "Introduction",
-      "pages": ["introduction/what-is-tunnel"]
+      "pages": [
+        "introduction/what-is-tunnel",
+        {
+          "group": "Getting Started",
+          "pages": [
+            "introduction/getting-started/development",
+            "introduction/getting-started/staging-and-production"
+          ]
+        }
+      ]
     },
     {
       "group": "Features",
@@ -58,32 +77,21 @@
       ]
     },
     {
-      "group": "CLI",
+      "group": "Introduction",
+      "pages": ["cli/installation"]
+    },
+    {
+      "group": "Commands",
       "pages": [
-        "cli/installation",
-        {
-          "group": "Commands",
-          "pages": [
-            {
-              "group": "Authentication",
-              "pages": [
-                "cli/commands/authentication/login",
-                "cli/commands/authentication/logout",
-                "cli/commands/authentication/whoami"
-              ]
-            },
-            "cli/commands/tunnel",
-            "cli/commands/share",
-            "cli/commands/delete",
-            "cli/commands/help",
-            "cli/commands/docs"
-          ]
-        }
+        "cli/commands/tunnel",
+        "cli/commands/share",
+        "cli/commands/auth",
+        "cli/commands/docs"
       ]
     },
     {
-      "group": "Advanced",
-      "pages": ["advanced/how-tunnel-works"]
+      "group": "SDKs",
+      "pages": ["sdks/react", "sdks/nextjs"]
     }
   ],
   "footerSocials": {
