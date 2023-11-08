@@ -1,16 +1,29 @@
 ---
-title: 'tunnel share'
-description: 'Share your app with the world'
+title: "tunnel share"
+description: "Create a secure tunnel to development environment."
 ---
-
-<Warning>This command requires you to be authenticated</Warning>
 
 ## Usage
 
-<CodeBlock>tunnel share</CodeBlock>
+```bash
+tunnel share [options] [path]
+```
+
+## Arguments
+
+<ParamField path="path">
+  Path to the directory of the app to share. Defaults to the current working
+  directory.
+</ParamField>
 
 ## Options
-```
--p, --port          connect to a specific port
--o, --open          open the tunnel in your browser
-```
+
+<ParamField path="--no-git">
+  Do not infer the git url from the current working directory.
+</ParamField>
+<ParamField path="-p, --port">Share the specified port.</ParamField>
+<ParamField path="-s, --subdomain">
+  Share the tunnel on a custom subdomain.
+</ParamField>
+<ParamField path="-o, --open">Open the tunnel in the browser.</ParamField>
+<ParamField path="-h, --help">Display help for command</ParamField>

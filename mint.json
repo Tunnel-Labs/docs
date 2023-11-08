@@ -27,13 +27,28 @@
       "url": "https://discord.gg/zMw6ZF2qCf"
     }
   ],
+  "tabs": [
+    {
+      "name": "CLI",
+      "url": "cli"
+    },
+    {
+      "name": "SDKs",
+      "url": "sdks"
+    }
+  ],
   "navigation": [
     {
       "group": "Introduction",
       "pages": [
         "introduction/what-is-tunnel",
-        "introduction/quickstart",
-        "introduction/contributing"
+        {
+          "group": "Getting Started",
+          "pages": [
+            "introduction/getting-started/development",
+            "introduction/getting-started/staging-and-production"
+          ]
+        }
       ]
     },
     {
@@ -62,26 +77,21 @@
       ]
     },
     {
-      "group": "CLI",
+      "group": "Introduction",
+      "pages": ["cli/installation"]
+    },
+    {
+      "group": "Commands",
       "pages": [
-        "cli/installation",
-        "cli/wrapper",
-        {
-          "group": "Commands",
-          "pages": [
-            "cli/commands/auth",
-            "cli/commands/tunnel",
-            "cli/commands/share",
-            "cli/commands/delete",
-            "cli/commands/help",
-            "cli/commands/docs"
-          ]
-        }
+        "cli/commands/tunnel",
+        "cli/commands/share",
+        "cli/commands/auth",
+        "cli/commands/docs"
       ]
     },
     {
-      "group": "Advanced",
-      "pages": ["advanced/how-tunnel-works"]
+      "group": "SDKs",
+      "pages": ["sdks/react", "sdks/nextjs"]
     }
   ],
   "footerSocials": {

@@ -1,17 +1,30 @@
 ---
-title: 'tunnel auth'
-description: 'Authenticate to the Tunnel CLI'
+title: "tunnel auth"
+description: "Manage your authentication settings in the Tunnel CLI."
 ---
 
-<Info>This command uses your browser to authenticate you</Info>
+The `auth` command gives you an interactive TUI to manage your authentication settings.
 
 ## Usage
 
-### Login to the CLI
-<CodeBlock>tunnel login</CodeBlock>
+```bash
+tunnel auth
+```
 
-### Get your user info
-<CodeBlock>tunnel auth whoami</CodeBlock>
+## Example
 
-### Logout of the CLI
-<CodeBlock>tunnel auth logout</CodeBlock>
+```bash
+$ tunnel auth
+
+💾 Logged in as: Richard Hendricks / @RichardHendricks
+
+@RichardHendricks (richard@piedpiper.com)
+💫 ├── Richard's Workspace RichardHendricks
+💫 ├── Pied Piper PiedPiper
+
+? What would you like to do? …
+❯ Switch accounts
+Logout
+Exit [ctrl+c]
+
+```

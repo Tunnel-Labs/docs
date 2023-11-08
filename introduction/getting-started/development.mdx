@@ -1,0 +1,68 @@
+---
+title: "Development"
+description: "Learn how to get started with Tunnel in your development environment."
+---
+
+## Install the Tunnel CLI
+
+The first step is to install the Tunnel CLI. This is the command-line tool that you will interact with Tunnel locally. Add the Tunnel CLI to your project's dependencies using your favorite package manager.
+
+<CodeGroup>
+
+```bash npm
+npm install @tunnel/cli
+```
+
+```bash yarn
+yarn add @tunnel/cli
+```
+
+```bash pnpm
+pnpm add @tunnel/cli
+```
+
+</CodeGroup>
+
+## Wrap your `dev` script
+
+Once you have the CLI installed, you can add Tunnel to your development environment by wrapping your development script with the Tunnel CLI. This looks different for every app, but follows the same pattern:
+
+```bash
+tunnel [port] -- [command]
+```
+
+`port` is the TCP port your app runs on
+
+`command` is the command to start your app.
+
+For example, if you have a Next.js app and your dev script is normally `next dev`, which starts your app on port `3000`, with Tunnel, your dev script will now be `tunnel 3000 -- next dev`. Below is an expample of how you can add Tunnel to your development environment by updating your `package.json`.
+
+<CodeGroup>
+
+```json package.json
+{
+  "scripts": {
+    "dev": "tunnel 3000 -- next dev"
+  }
+}
+```
+
+</CodeGroup>
+
+## Start your app
+
+Then, you can start your app as usual with `npm run dev`, but now when you visit `http://localhost:3000` you'll find the Tunnel toolbar.
+
+<Frame>
+  <img src="assets/screenshots/quickstart/create-next-app.png" />
+</Frame>
+
+## Share your live preview
+
+Once you've added Tunnel to your development environment, you're ready to share your first live preview.
+
+Once you've signed in and selected a project, you can click the share button find your preview link.
+
+<Frame>
+  <img src="assets/screenshots/quickstart/toolbar-share.png" />
+</Frame>
