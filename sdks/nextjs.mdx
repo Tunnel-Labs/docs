@@ -1,0 +1,58 @@
+---
+title: "Next.js"
+description: "Reference for the Tunnel Next.js SDK"
+---
+
+## Installation
+
+<CodeGroup>
+
+```bash npm
+npm install @tunnel/nextjs
+```
+
+```bash yarn
+yarn add @tunnel/nextjs
+```
+
+```bash pnpm
+pnpm add @tunnel/nextjs
+```
+
+</CodeGroup>
+
+## Exports
+
+Exports from the `@tunnel/nextjs` package.
+
+### TunnelToolbar
+
+Adding the `TunnelToolbar` component to your app allows you to use Tunnel's
+collaboration and feedback tools from hosted environments.
+
+#### Parameters
+
+<ParamField path="projectId" required>
+  The ID of the project you want to connect to.
+</ParamField>
+
+#### Example
+
+The example below demonstrates how you might conditionally render the `TunnelToolbar` component in your staging environment.
+
+```jsx App.jsx
+import { TunnelToolbar } from "@tunnel/nextjs";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        {process.env.APP_ENV === "staging" && (
+          <TunnelToolbar projectId="YOUR_PROJECT_ID" />
+        )}
+      </body>
+    </html>
+  );
+}
+```

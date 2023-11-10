@@ -1,17 +1,24 @@
 ---
-title: 'tunnel'
-description: 'The default Tunnel command'
+title: "tunnel"
+description: "Add Tunnel to your development environment."
 ---
 
-## Usage 
+## Usage
 
-<CodeBlock>tunnel</CodeBlock>
+```bash
+tunnel [options] [port] -- [command]
+```
+
+## Arguments
+
+<ParamField path="port" required>
+  the port the app is running on
+</ParamField>
+<ParamField path="command" required>
+  the command to start your app in dev mode
+</ParamField>
 
 ## Options
 
-```
--V, --version           output the version number
--a, --app <app>         specify an explicit Tunnel pathslug to connect to
--p, --port <port>       the port the app is running on
--h, --help              display help for command
-```
+<ParamField path="-V, --version">Output the version number.</ParamField>
+<ParamField path="-h, --help">Display help for command.</ParamField>

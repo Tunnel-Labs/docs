@@ -1,0 +1,38 @@
+---
+title: 'Quickstart'
+description: 'Share your app with the world in under 1 minute'
+---
+
+## Installing the CLI
+First step - nice and easy. Install the Tunnel CLI.
+
+<CodeGroup>
+
+```bash npm
+npm install -g @tunnel/cli
+```
+
+```bash yarn
+yarn global add @tunnel/cli
+```
+
+```bash pnpm
+pnpm add --global @tunnel/cli
+```
+
+</CodeGroup>
+
+## Authentication
+Next, you have to login to the Tunnel CLI - you must have an account already. If you don't, [creating one](https://tunnel.dev/register) is pretty easy. 
+<CodeBlock>tunnel login</CodeBlock>
+
+## Creating a Tunnel
+Now that you've installed the CLI and logged in, you can make your first tunnel! In order to do so, simply run the following command:
+
+<CodeBlock>tunnel share</CodeBlock>
+
+### Options
+```
+-p, --port          connect to a specific port
+-o, --open          open the tunnel in your browser
+```

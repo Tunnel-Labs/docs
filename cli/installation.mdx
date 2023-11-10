@@ -1,22 +1,51 @@
 ---
-title: 'Installation'
-description: 'To install the Tunnel CLI, run the following command in your terminal:'
+title: "Installation"
+description: "How to install the Tunnel CLI."
 ---
 
-<Info>Requires Node.js (16.0.0 or later)</Info>
+## NPM
 
-<CodeGroup>
+<Tabs>
+  <Tab title="Local installation">
+    <CodeGroup>
 
-```bash npm
-npm install -g @tunnel/cli
+    ```bash npm
+    npm install @tunnel/cli
+    ```
+
+    ```bash yarn
+    yarn add @tunnel/cli
+    ```
+
+    ```bash pnpm
+    pnpm add @tunnel/cli
+    ```
+
+    </CodeGroup>
+
+  </Tab>
+  <Tab title="Global installation">
+    <CodeGroup>
+
+    ```bash npm
+    npm install -g @tunnel/cli
+    ```
+
+    ```bash yarn
+    yarn global add @tunnel/cli
+    ```
+
+    ```bash pnpm
+    pnpm add -g @tunnel/cli
+    ```
+
+    </CodeGroup>
+
+  </Tab>
+</Tabs>
+
+## Homebrew
+
+```bash
+brew install tunnel-labs/tunnel/tunnel-cli
 ```
-
-```bash yarn
-yarn global add @tunnel/cli
-```
-
-```bash pnpm
-pnpm add --global @tunnel/cli
-```
-
-</CodeGroup>
