@@ -77,6 +77,10 @@
       ]
     },
     {
+      "group": "Integrations",
+      "pages": ["integrations/jira"]
+    },
+    {
       "group": "Introduction",
       "pages": ["cli/installation"]
     },
