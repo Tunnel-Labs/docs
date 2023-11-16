@@ -78,7 +78,7 @@
     },
     {
       "group": "Integrations",
-      "pages": ["integrations/jira"]
+      "pages": ["integrations/jira", "integrations/linear"]
     },
     {
       "group": "Introduction",
