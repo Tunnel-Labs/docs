@@ -1,0 +1,118 @@
+---
+title: "Linear"
+description: "Learn how to use Tunnel with Linear"
+---
+
+## Overview
+
+The Linear integration allows you to create issues in Linear from Tunnel comments. You can also set default issue properties and automatically create issues in Linear with every comment.
+
+## Configuration
+
+You can configure the Linear integration in the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default) by navigating to **Settings > Profile** and scrolling to the **Integrations** section.
+
+### Connect Linear
+
+Go to the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default) and navigate
+to **Settings > Profile**. Scroll to the **Integrations**
+section and click **Connect** in the **Linear** row.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/linear/organization-profile-settings.png" />
+</Frame>
+<br />
+
+<Info>
+  The Linear integration connects via your Linear account, not your team's
+  Linear organization, so you won't need an admin to use it.
+</Info>
+
+## Create issues
+
+### Manually
+
+With your Linear account connected, you can create issues in Linear from Tunnel comments.
+
+<Steps>
+  <Step title="Open the integrations dropdown menu">
+
+To attach a Linear issue to a comment, open the integrations dropdown menu from the **Create** button. Select **Create issue** in the Linear row.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/integrations-dropdown.png" />
+</Frame>
+  </Step>
+  <Step title="Set issue properties">
+
+Set the team, project, status, labels, assignee, and priority for the issue.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/linear/linear-ticket-properties.png" />
+</Frame>
+
+  </Step>
+
+  <Step title="Submit the comment to create the issue">
+
+When you submit the comment, the issue will be created in Linear and a link to the issue will be added to the comment.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/linear/linear-ticket.png" />
+</Frame>
+
+  </Step>
+</Steps>
+
+### Automatically
+
+You can also set default issue properties and automatically create issues in Linear with every comment.
+
+<Steps>
+  <Step title="Add default issue properties">
+
+Go to the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default) and navigate to **Settings > Profile**. Scroll to the **Integrations** section and click **Manage** in the **Linear** row.
+
+From here, you can set a default Linear team, and then set default values for project, status, assignee, and priority. You can also set default labels.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/linear/default-settings.png" />
+</Frame>
+</Step>
+  <Step title="(Optional) Turn on automatic issue creation">
+
+In your default Linear settings, you also have the option to turn on automatic issue creation. This will create a new issue in Linear for every you create comment in Tunnel.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/linear/automatic-screenshot-creation.png" />
+</Frame>
+  </Step>
+  <Step title="Create an issue">
+
+With your default settings configured, you can easily create an issue in Linear from a comment. To attach a Linear issue to a comment, open the integrations dropdown menu from the **Create** button. Select **Create issue** in the Linear row.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/integrations-dropdown.png" />
+</Frame>
+
+When you submit the comment, the issue will be created in Linear with your default settings and a link to the issue will be added to the comment.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/linear/linear-ticket.png" />
+</Frame>
+
+If you have automatic issue creation turned on, you'll see the Linear icon at the bottom of comment box. You can click it to override your default settings and create an issue with custom properties. Otherwise, an issue will be created with your default settings when you submit the comment.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/linear/linear-icon.png" />
+</Frame>
+  </Step>
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="What happens when someone resolves a comment attached to a Linear issue?">
+    When someone resolves a comment attached to a Linear issue, the issue will
+    be marked **Done** in Linear.
+  </Accordion>
+</AccordionGroup>
