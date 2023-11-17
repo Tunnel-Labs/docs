@@ -1,0 +1,46 @@
+---
+title: "Auth0: Callback URL mismatch"
+description: How to solve an Auth0 "Callback URL mismatch" error
+---
+
+<Frame>
+  <img src="assets/screenshots/errors/auth0-callback-url-mismatch/callback-url-mismatch.png" />
+</Frame>
+
+## Why this error occurs
+
+This error occurs because `tunnelapp.dev` domains are not one of the domains whitelisted in your Auth0 Application Settings.
+
+## Possible ways to fix it
+
+Here are some possible fixes:
+
+### Whitelist Tunnel URLs in your Auth0 Application Settings
+
+<Steps>
+  <Step title="Navigate to your Auth0 Application Settings page">
+    Click the **Application Settings page** link in the error message or navigate to the **[Auth0 Dashboard](https://manage.auth0.com/dashboard) > Applications > *Your Application* > Settings**.
+
+    <Frame>
+      <img src="assets/screenshots/errors/auth0-callback-url-mismatch/application-settings-link.png" />
+    </Frame>
+
+  </Step>
+  <Step title="Add Tunnel URLs to your allowed URLs">
+    Scroll to the **Application URIs** section. Add the following wildcard URL to both your **Allowed Callback URLs** and **Allowed Logout URLs**:
+
+    ```
+    https://*.tunnelapp.dev/*
+    ```
+
+    <Frame>
+      <img src="assets/screenshots/errors/auth0-callback-url-mismatch/allowed-urls.png" />
+    </Frame>
+
+  </Step>
+</Steps>
+
+<Info>
+  Didn't solve you problem? Ask for help in our [Discord
+  server].("https://discord.com/invite/zMw6ZF2qCf")
+</Info>
