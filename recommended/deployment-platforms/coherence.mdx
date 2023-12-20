@@ -1,0 +1,92 @@
+---
+title: Coherence
+description: Using Tunnel with Coherence
+---
+
+# What is Coherence?
+
+[Coherence](https://withcoherence.com) provides automated environments for developing, testing, and deploying your app in the cloud. With a minimal yaml file, it spins up full-stack environments with automated build pipelines using cloud-native services.
+
+# Why choose Coherence?
+
+We recommend Coherence for the following reasons and use cases:
+
+# Using Tunnel with Coherence
+
+Tunnel integrates seamlessly with [Coherence Branch Previews](https://docs.withcoherence.com/docs/overview/what-is-coherence) to enable built-in collaboration and feedback workflows for your team.
+
+## Prerequisites
+
+- Set up preview environments in Coherence. If you haven't already, follow the [Coherence Docs](https://docs.withcoherence.com/) to set up Coherence Branch Previews for your app.
+
+## Add Tunnel to your app
+
+You can add Tunnel to your Coherence Branch Preview using one of our [Framework SDKS](/sdks) or a simple `<script>` tag.
+
+<Tabs>
+  <Tab title="React">
+    ### Install the Tunnel React SDK
+
+    <CodeGroup>
+    ```shell npm
+      npm install @tunnel/react
+    ```
+
+    ```shell yarn
+      yarn add @tunnel/react
+    ```
+
+    ```shell pnpm
+      pnpm add @tunnel/react
+    ```
+    </CodeGroup>
+
+    ### Add the `<TunnelToolbar />` component to your app
+
+    To enable Tunnel in your app, conditionally render the `<TunnelToolbar />` component in your app. Developers usually only render the `<TunnelToolbar />` component in your app when it is running in a Coherence Branch Preview environment.
+
+    The `<TunnelToolbar />` component requires a `projectId` prop and a `branch` prop.
+
+    - `projectId` is the ID of your Tunnel project. You can find your project ID in the [Tunnel Dashboard](https://tunnel.dev/).
+    - `branch` is the branch name of the Coherence Branch Preview. Coherence automatically injects the `COHERENCE_ENVIRONMENT_NAME` environment variable, which you can pass directly to the `<TunnelToolber />` component.
+
+    ```jsx App.jsx
+    import { TunnelToolbar } from '@tunnel/react';
+
+    function App() {
+      return (
+        <div className="App">
+          {(process.env.NODE_ENV !== "development" && process.env.COHERENCE_ENVIRONMENT_NAME !== "main") && (
+            <TunnelToolbar
+              projectId="PROJECT_ID"
+              branch={process.env.COHERENCE_ENVIRONMENT_NAME}
+            />
+          )}
+        </div>
+      );
+    }
+
+    export default App;
+    ```
+
+  </Tab>
+  <Tab title="<script> Tag">
+    ### Add the `<script>` tag to your app
+
+    To enable Tunnel in your app, add the `<script>` tag to your app. Developers usually only add the `<script>` tag in your app when it is running in a Coherence Branch Preview environment.
+
+    The `<script>` tag requires a `data-project-id` attribute and a `data-branch` attribute.
+
+    - `data-project-id` is the ID of your Tunnel project. You can find your project ID in the [Tunnel Dashboard](https://tunnel.dev/).
+    - `data-branch` is the branch name of the Coherence Branch Preview. Coherence automatically injects the `COHERENCE_ENVIRONMENT_NAME` environment variable, which you can pass directly to the `<script>` tag.
+
+    ```html index.html
+    <script
+      src="https://tunnelapp.dev/__tunnel/script.js"
+      data-project-id="PROJECT_ID"
+      data-branch="COHERENCE_ENVIRONMENT_NAME"
+    ></script>
+    ```
+
+  </Tab>
+</Tabs>
