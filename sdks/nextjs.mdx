@@ -36,6 +36,10 @@ collaboration and feedback tools from hosted environments.
   The ID of the project you want to connect to.
 </ParamField>
 
+<ParamField path="branch" required>
+  The git branch for the current environment.
+</ParamField>
+
 #### Example
 
 The example below demonstrates how you might conditionally render the `TunnelToolbar` component in your staging environment.
@@ -49,7 +53,10 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         {process.env.APP_ENV === "staging" && (
-          <TunnelToolbar projectId="YOUR_PROJECT_ID" />
+          <TunnelToolbar 
+            projectId="YOUR_PROJECT_ID" 
+            branch="BRANCH_NAME"
+          />
         )}
       </body>
     </html>
