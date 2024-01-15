@@ -1,0 +1,96 @@
+---
+title: "GitHub"
+description: "Learn how to use Tunnel with Github"
+icon: "github"
+---
+
+## Overview
+
+The Github integration allows you to link GitHub repositories to projects in Tunnel. Once linked, Tunnel will display the status of the comments on the corresponding branch. This allows you to see how many comments have been resolved and how many are still open.
+
+## Configuration
+
+### Connect Github
+
+Navigate to [**Settings** > **Integrations**](https://tunnel.dev/settings/integrations) and click the **Connect** button.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/github/organization-settings.png" />
+</Frame>
+
+## Link repositories to projects
+
+With your Github organization connected, you can link repositories to projects in Tunnel.
+
+### Link a repository to a new project
+
+<Steps>
+  <Step title="Create a new project">
+    To create a new project and link a repository to it, navigate to
+    [**Projects**](https://tunnel.dev/projects) and click the **New project**
+    button.
+    <Frame>
+      <img src="/assets/screenshots/integrations/github/create-project.png" />
+    </Frame>
+  </Step>
+  <Step title="Select a repository">
+    In the **Link a Repository** field, select the repository you want to link
+    to the project.
+    <Frame>
+      <img src="/assets/screenshots/integrations/github/new-projectselect-repository.png" />
+    </Frame>
+  </Step>
+</Steps>
+
+### Link a repository to an existing project
+
+<Steps>
+  <Step title="Create a new project">
+    To link a repository to an existing project, navigate to
+    [**Projects**](https://tunnel.dev/projects) and select the project you want
+    to link a repository to. Navigate to the **Settings** tab.
+    <Frame>
+      <img src="/assets/screenshots/integrations/github/existing-project-settings.png" />
+    </Frame>
+  </Step>
+  <Step title="Select a repository">
+    Scroll down to the **GitHub Repository** section and select the repository
+    you want to link to the project.
+    <Frame>
+      <img src="/assets/screenshots/integrations/github/existing-project-select-repository.png" />
+    </Frame>
+  </Step>
+</Steps>
+
+## Adding git metadata to comments
+
+### Development
+The Tunnel CLI will automatically detect the repository and branch you are working on and add git metadata to comments.
+
+### Staging and Production
+
+To add git metadata to comments in your hosted environments, you will need to pass a git branch to the `<TunnelToolbar />` component or `<script>` tag.
+
+<CodeGroup>
+
+```jsx SDK
+<TunnelToolbar projectId="PROJECT_ID" branch="BRANCH_NAME" />
+```
+
+```html <script> tag
+<script
+  src="https://tunnelapp.dev/__tunnel/script.js"
+  data-project-id="PROJECT_ID"
+  data-branch="BRANCH_NAME"
+></script>
+```
+
+</CodeGroup>
+
+## Sync Pull Requests
+
+Pull requests receive generated PR messages from the Tunnel bot. The PR message tracks how many comments have been resolved and how many are still open. The PR message is updated every time a comment is resolved or reopened.
+
+<Frame>
+  <img src="/assets/screenshots/integrations/github/pr-message.png" />
+</Frame>
