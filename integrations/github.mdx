@@ -62,13 +62,12 @@ With your Github organization connected, you can link repositories to projects i
   </Step>
 </Steps>
 
-## Sync Pull Requests
+## Adding git metadata to comments
 
-### Adding git metadata to comments
+### Development
+The Tunnel CLI will automatically detect the repository and branch you are working on and add git metadata to comments.
 
-#### Development
-
-#### Staging and Production
+### Staging and Production
 
 To add git metadata to comments in your hosted environments, you will need to pass a git branch to the `<TunnelToolbar />` component or `<script>` tag.
 
@@ -88,7 +87,7 @@ To add git metadata to comments in your hosted environments, you will need to pa
 
 </CodeGroup>
 
-### Syncing Pull Requests
+## Sync Pull Requests
 
 Pull requests receive generated PR messages from the Tunnel bot. The PR message tracks how many comments have been resolved and how many are still open. The PR message is updated every time a comment is resolved or reopened.
 
