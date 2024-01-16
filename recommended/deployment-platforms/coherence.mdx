@@ -13,8 +13,10 @@ description: Using Tunnel with Coherence
 
 ## Why choose Coherence?
 
-We recommend Coherence for the following reasons and use cases:
-* Coherence 
+With Coherence, you can easily provision automated environments for developing, testing, and deploying your app in the cloud, with:
+- Preview Deployments, Managed CI/CD, and Production Hosting
+- Your AWS/GCP account and credits
+- No vendor lock-in
 
 # Using Tunnel with Coherence
 
@@ -53,7 +55,7 @@ You can add Tunnel to your Coherence Branch Previews using one of our [SDKS](/sd
     The `<TunnelToolbar />` component requires a `projectId` prop and a `branch` prop.
 
     - `projectId` is the ID of your Tunnel project. You can find your project ID in the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default).
-    - `branch` is the branch name of the Coherence Branch Preview. Coherence automatically injects the `COHERENCE_ENVIRONMENT_NAME` environment variable, which you can pass directly to the `<TunnelToolber />` component.
+    - `branch` is the branch name of the Coherence Branch Preview. Coherence automatically injects the `COHERENCE_ENVIRONMENT_NAME` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
 
     ```jsx App.jsx
     import { TunnelToolbar } from '@tunnel/react';
@@ -72,6 +74,53 @@ You can add Tunnel to your Coherence Branch Previews using one of our [SDKS](/sd
     }
 
     export default App;
+    ```
+
+  </Tab>
+  <Tab title="Next">
+    ### Install the Tunnel Next SDK
+
+    <CodeGroup>
+    ```shell npm
+      npm install @tunnel/next
+    ```
+
+    ```shell yarn
+      yarn add @tunnel/next
+    ```
+
+    ```shell pnpm
+      pnpm add @tunnel/next
+    ```
+    </CodeGroup>
+
+    ### Add the `<TunnelToolbar />` component to your app
+
+    To enable Tunnel in your app, conditionally render the `<TunnelToolbar />` component in your app. Developers usually only render the `<TunnelToolbar />` component in your app when it is running in a Coherence Branch Preview environment.
+
+    The `<TunnelToolbar />` component requires a `projectId` prop and a `branch` prop.
+
+    - `projectId` is the ID of your Tunnel project. You can find your project ID in the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default).
+    - `branch` is the branch name of the Coherence Branch Preview. Coherence automatically injects the `COHERENCE_ENVIRONMENT_NAME` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
+
+    ```jsx layout.jsx
+    import { TunnelToolbar } from '@tunnel/next';
+
+    export default function RootLayout({ children }) {
+      return (
+        <html lang="en">
+          <body>
+            {children}
+            {(process.env.NODE_ENV !== "development" && process.env.COHERENCE_ENVIRONMENT_NAME !== "main") && (
+              <TunnelToolbar
+                projectId="PROJECT_ID"
+                branch={process.env.COHERENCE_ENVIRONMENT_NAME}
+              />
+            )}
+          </body>
+        </html>
+      );
+    }
     ```
 
   </Tab>
