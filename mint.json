@@ -85,6 +85,15 @@
       ]
     },
     {
+      "group": "Recommended",
+      "pages": [
+        {
+          "group": "Deployment Platforms",
+          "pages": ["recommended/deployment-platforms/coherence"]
+        }
+      ]
+    },
+    {
       "group": "Introduction",
       "pages": ["cli/installation"]
     },
