@@ -39,7 +39,7 @@ You can add Tunnel to your Railway Preview Environments using one of our [SDKS](
     The `<TunnelToolbar />` component requires a `projectId` prop and a `branch` prop.
 
     - `projectId` is the ID of your Tunnel project. You can find your project ID in the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default).
-    - `branch` is the branch name of the Railway Preview Environment . Railway automatically injects the `Railway_GIT_BRANCH` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
+    - `branch` is the branch name of the Railway Preview Environment . Railway automatically injects the `RAILWAY_GIT_BRANCH` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
 
     ```jsx App.jsx
     import { TunnelToolbar } from '@tunnel/react';
@@ -47,10 +47,10 @@ You can add Tunnel to your Railway Preview Environments using one of our [SDKS](
     function App() {
       return (
         <div className="App">
-          {(process.env.NODE_ENV !== "development" && process.env.Railway_GIT_BRANCH !== "main") && (
+          {(process.env.NODE_ENV !== "development" && process.env.RAILWAY_GIT_BRANCH !== "main") && (
             <TunnelToolbar
               projectId="PROJECT_ID"
-              branch={process.env.Railway_GIT_BRANCH}
+              branch={process.env.RAILWAY_GIT_BRANCH}
             />
           )}
         </div>
@@ -95,7 +95,7 @@ You can add Tunnel to your Railway Preview Environments using one of our [SDKS](
         <html lang="en">
           <body>
             {children}
-            {(process.env.NODE_ENV !== "development" && process.env.Railway_GIT_BRANCH !== "main") && (
+            {(process.env.NODE_ENV !== "development" && process.env.RAILWAY_GIT_BRANCH !== "main") && (
               <TunnelToolbar
                 projectId="PROJECT_ID"
                 branch={process.env.RAILWAY_GIT_BRANCH}
