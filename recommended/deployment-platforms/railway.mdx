@@ -66,15 +66,15 @@ You can add Tunnel to your Railway Preview Environments using one of our [SDKS](
 
     <CodeGroup>
     ```shell npm
-      npm install @tunnel/next
+      npm install @tunnel/nextjs
     ```
 
     ```shell yarn
-      yarn add @tunnel/next
+      yarn add @tunnel/nextjs
     ```
 
     ```shell pnpm
-      pnpm add @tunnel/next
+      pnpm add @tunnel/nextjs
     ```
     </CodeGroup>
 
@@ -88,7 +88,7 @@ You can add Tunnel to your Railway Preview Environments using one of our [SDKS](
     - `branch` is the branch name of the Railway Preview Environment. Railway automatically injects the `RAILWAY_GIT_BRANCH` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
 
     ```jsx layout.jsx
-    import { TunnelToolbar } from '@tunnel/next';
+    import { TunnelToolbar } from '@tunnel/nextjs';
 
     export default function RootLayout({ children }) {
       return (

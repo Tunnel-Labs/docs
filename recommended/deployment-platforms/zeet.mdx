@@ -70,15 +70,15 @@ You can add Tunnel to your Zeet Preview Environments using one of our [SDKS](/sd
 
     <CodeGroup>
     ```shell npm
-      npm install @tunnel/next
+      npm install @tunnel/nextjs
     ```
 
     ```shell yarn
-      yarn add @tunnel/next
+      yarn add @tunnel/nextjs
     ```
 
     ```shell pnpm
-      pnpm add @tunnel/next
+      pnpm add @tunnel/nextjs
     ```
     </CodeGroup>
 
@@ -92,7 +92,7 @@ You can add Tunnel to your Zeet Preview Environments using one of our [SDKS](/sd
     - `branch` is the branch name of the Zeet Preview Environment. Zeet automatically injects the `Zeet_GIT_BRANCH` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
 
     ```jsx layout.jsx
-    import { TunnelToolbar } from '@tunnel/next';
+    import { TunnelToolbar } from '@tunnel/nextjs';
 
     export default function RootLayout({ children }) {
       return (

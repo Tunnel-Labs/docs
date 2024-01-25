@@ -66,15 +66,15 @@ You can add Tunnel to your Render Preview Environments using one of our [SDKS](/
 
     <CodeGroup>
     ```shell npm
-      npm install @tunnel/next
+      npm install @tunnel/nextjs
     ```
 
     ```shell yarn
-      yarn add @tunnel/next
+      yarn add @tunnel/nextjs
     ```
 
     ```shell pnpm
-      pnpm add @tunnel/next
+      pnpm add @tunnel/nextjs
     ```
     </CodeGroup>
 
@@ -88,7 +88,7 @@ You can add Tunnel to your Render Preview Environments using one of our [SDKS](/
     - `branch` is the branch name of the Render Preview Environment. Render automatically injects the `RENDER_GIT_BRANCH` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
 
     ```jsx layout.jsx
-    import { TunnelToolbar } from '@tunnel/next';
+    import { TunnelToolbar } from '@tunnel/nextjs';
 
     export default function RootLayout({ children }) {
       return (
