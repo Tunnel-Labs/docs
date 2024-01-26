@@ -1,0 +1,16 @@
+<Steps>
+<Step title="Add the Tunnel `<script>` tag to your app">
+To enable Tunnel in your app, render the `<script>` tag.
+
+<ParamField path="data-project-id" required>
+  The Tunnel `<script>` tag requires a `data-project-id` attribute. You can find your Project ID in the Tunnel Dashboard by navigating to [**Projects**](https://tunnel.dev/projects) > ***Your Project*** > **Settings**.
+</ParamField>
+
+```html index.html
+<script
+  src="https://tunnelapp.dev/__tunnel/script.js"
+  data-project-id="PROJECT_ID"
+></script>
+```
+</Step>
+</Steps>

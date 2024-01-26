@@ -1,0 +1,48 @@
+<Steps>
+<Step title="Install the Tunnel Next.js SDK">
+For full documentation, see our [**Next.js SDK docs**](https://docs.tunnel.dev/docs/sdks/nextjs).
+<CodeGroup>
+  ```shell npm
+  npm install @tunnel/nextjs
+  ```
+
+  ```shell yarn
+  yarn add @tunnel/nextjs
+  ```
+
+  ```shell pnpm
+  pnpm add @tunnel/nextjs
+  ```
+</CodeGroup>
+</Step>
+<Step title="Add the Tunnel Toolbar to your app">
+To enable Tunnel in your app, render the `<TunnelToolbar />` component in your app. The `<TunnelToolbar />` component is a React component that requires a `projectId` prop.
+
+<ParamField path="projectId" required>
+  The ID of the project to link to. You can find your Project ID in the Tunnel Dashboard by navigating to [**Projects**](https://tunnel.dev/projects) > ***Your Project*** > **Settings**.
+</ParamField>
+
+```javascript App.jsx
+import { TunnelToolbar } from '@tunnel/nextjs';
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+        {/**
+          Conditionally the Tunnel Toolbar when the app is not in dev mode.
+          For more examples, see https://docs.tunnel.dev/docs/when-to-render-the-tunnel-toolbar
+        */}
+        {(process.env.NODE_ENV !== "development") && (
+          <TunnelToolbar
+            projectId={process.env.TUNNEL_PROJECT_ID}
+          />
+        )}
+      </body>
+    </html>
+  );
+}
+```
+</Step>
+</Steps>
