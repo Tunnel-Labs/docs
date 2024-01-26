@@ -49,7 +49,7 @@ You can add Tunnel to your Vercel Preview Environments using one of our [SDKS](/
         <div className="App">
           {(process.env.NODE_ENV !== "development" && process.env.VERCEL_GIT_COMMIT_REF !== "main") && (
             <TunnelToolbar
-              projectId="PROJECT_ID"
+              projectId={process.env.TUNNEL_PROJECT_ID}
               branch={process.env.VERCEL_GIT_COMMIT_REF}
             />
           )}
@@ -97,7 +97,7 @@ You can add Tunnel to your Vercel Preview Environments using one of our [SDKS](/
             {children}
             {(process.env.NODE_ENV !== "development" && process.env.VERCEL_GIT_COMMIT_REF !== "main") && (
               <TunnelToolbar
-                projectId="PROJECT_ID"
+                projectId={process.env.TUNNEL_PROJECT_ID}
                 branch={process.env.VERCEL_GIT_COMMIT_REF}
               />
             )}
