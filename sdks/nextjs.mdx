@@ -2,6 +2,7 @@
 title: "Next.js"
 description: "Reference for the Tunnel Next.js SDK"
 ---
+import NextjsSdk from "/snippets/nextjs-sdk.mdx";
 
 ## Installation
 
@@ -44,22 +45,4 @@ collaboration and feedback tools from hosted environments.
 
 The example below demonstrates how you might conditionally render the `TunnelToolbar` component in your staging environment.
 
-```jsx App.jsx
-import { TunnelToolbar } from "@tunnel/nextjs";
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>
-        {children}
-        {process.env.APP_ENV === "staging" && (
-          <TunnelToolbar 
-            projectId="YOUR_PROJECT_ID" 
-            branch="BRANCH_NAME"
-          />
-        )}
-      </body>
-    </html>
-  );
-}
-```
+<NextjsSdk />
