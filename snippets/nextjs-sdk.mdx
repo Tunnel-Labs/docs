@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         {/**
-          Conditionally the Tunnel Toolbar when the app is not in dev mode.
+          Conditionally render the Tunnel Toolbar when the app is not in dev mode.
           For more examples, see https://docs.tunnel.dev/docs/when-to-render-the-tunnel-toolbar
         */}
         {(process.env.NODE_ENV !== "development") && (
