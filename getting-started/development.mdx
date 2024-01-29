@@ -2,3 +2,71 @@
 title: Development
 description: Get started with Tunnel in your development environment
 ---
+## Overview
+Using Tunnel in your development environment allows you to tackle feedback in context and collaborate with your team. You can also use Tunnel to share live previews of your app. 
+
+## Setup
+<Tabs>
+  <Tab title="Vite">
+    ### Install the Tunnel CLI
+    <CodeGroup>
+      ```shell npm
+      npm install @tunnel/cli
+      ```
+      ```shell yarn
+      yarn add @tunnel/cli
+      ```
+      ```shell pnpm
+      pnpm add @tunnel/cli
+      ```
+    </CodeGroup>
+
+      ### Add Tunnel to your dev script
+      Adding Tunnel to your dev script will add the Tunnel Toolbar to your localhost and automatically share your app when you run your dev command.
+      ```json package.json
+      "scripts": {
+        "dev": "tunnel 5173 -- vite dev --port PORT"
+      }
+      ```
+  </Tab>
+  <Tab title="Next.js">
+    ### Install the Tunnel CLI
+    Adding Tunnel to your dev script will add the Tunnel Toolbar to your localhost and automatically share your app when you run your dev command.
+    <CodeGroup>
+      ```shell npm
+      npm install @tunnel/cli
+      ```
+      ```shell yarn
+      yarn add @tunnel/cli
+      ```
+      ```shell pnpm
+      pnpm add @tunnel/cli
+      ```
+    </CodeGroup>
+
+    ### Add Tunnel to your dev script
+    ```json package.json
+    "scripts": {
+      "dev": "tunnel 3000 -- next dev --port 3000"
+    }
+    ```
+  </Tab>
+  <Tab title="Other frameworks">
+    ### Install the Tunnel CLI globally
+    <CodeGroup>
+      ```shell npm
+      npm install -g @tunnel/cli
+      ```
+      ```shell yarn
+      yarn add -g @tunnel/cli
+      ```
+      ```shell pnpm
+      pnpm add -g @tunnel/cli
+      ```
+    </CodeGroup>
+      ### Run `tunnel share .` in your project directory
+      ```shell
+      tunnel share .
+      ```
+  </Tab>
+</Tabs>
