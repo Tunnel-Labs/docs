@@ -1,0 +1,44 @@
+---
+title: "Slack"
+description: "Learn how to use Tunnel with Slack."
+---
+## Overview
+The Tunnel Slack integration allows you to link Slack channels to projects in Tunnel. Once linked, Tunnel will send a broadcast for each new comment in the linked Slack channel. This allows you to respond to feedback directly from Slack, with two-way synced threads and a resolve button to mark the comment as resolved.
+## Configuration
+### Connect Slack
+Navigate to [**Settings** > **Integrations**](https://tunnel.dev/settings/integrations) and click **Connect**.
+<Frame>
+  <img src="/assets/screenshots/integrations/slack/connect-slack.png" />
+</Frame>
+
+## Link Slack channels to projects
+With your Slack organization connected, you can link channels to projects in Tunnel.
+
+<Steps>
+  <Step title="Navigate to your project's settings">
+    To link a channel to a project, navigate to
+    [**Projects**](https://tunnel.dev/projects) and select the project you want
+    to link a channel to. Navigate to the **Settings** tab.
+    <Frame>
+      <img src="/assets/screenshots/integrations/github/existing-project-settings.png" />
+    </Frame>
+  </Step>
+  <Step title="Select a channel">
+    Scroll down to the **Slack channel** section and select the repository
+    you want to link to the project.
+    <Frame>
+      <img src="/assets/screenshots/integrations/slack/connect-channel.png" />
+    </Frame>
+  </Step>
+</Steps>
+
+## Creating broadcasts
+Once a channel is linked to a project, Tunnel will send a broadcast for each new comment in the linked Slack channel.
+<Frame>
+  <img src="/assets/screenshots/integrations/slack/broadcast-example.png" />
+</Frame>
+### Synced threads
+Replies to broadcasts in Slack will be synced back to Tunnel and vice versa, allowing you to respond to feedback directly from Slack.
+<Frame>
+  <img src="/assets/screenshots/integrations/slack/sync-example.png" />
+</Frame>

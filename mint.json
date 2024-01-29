@@ -47,7 +47,8 @@
       "pages": [
         "integrations/github",
         "integrations/jira",
-        "integrations/linear"
+        "integrations/linear",
+        "integrations/slack"
       ]
     },
     {
