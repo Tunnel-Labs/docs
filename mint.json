@@ -39,42 +39,8 @@
   ],
   "navigation": [
     {
-      "group": "Introduction",
-      "pages": [
-        "introduction/what-is-tunnel",
-        {
-          "group": "Getting Started",
-          "pages": [
-            "introduction/getting-started/development",
-            "introduction/getting-started/staging-and-production"
-          ]
-        }
-      ]
-    },
-    {
-      "group": "Features",
-      "pages": [
-        {
-          "group": "Collaboration",
-          "pages": [
-            "features/collaboration/hot-reloading",
-            "features/collaboration/cursors",
-            "features/collaboration/comments",
-            "features/collaboration/inbox"
-          ]
-        },
-        {
-          "group": "Organizations",
-          "pages": [
-            "features/organizations/organization-tunnels-dashboard",
-            "features/organizations/organization-inbox"
-          ]
-        },
-        {
-          "group": "Security",
-          "pages": ["features/security/viewer-permissions"]
-        }
-      ]
+      "group": "Getting Started",
+      "pages": ["getting-started/quick-start"]
     },
     {
       "group": "Integrations",
@@ -83,6 +49,15 @@
         "integrations/jira",
         "integrations/linear",
         "integrations/slack"
+      ]
+    },
+    {
+      "group": "Recommended",
+      "pages": [
+        {
+          "group": "Deployment Platforms",
+          "pages": ["recommended/deployment-platforms/coherence"]
+        }
       ]
     },
     {
