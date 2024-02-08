@@ -40,7 +40,7 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["getting-started/quick-start"]
+      "pages": ["getting-started/quick-start", "getting-started/development"]
     },
     {
       "group": "Integrations",
