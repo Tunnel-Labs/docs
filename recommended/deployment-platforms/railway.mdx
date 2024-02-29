@@ -2,13 +2,14 @@
 title: Railway
 description: Using Tunnel with Railway
 ---
+
 # Using Tunnel with Railway
 
 Tunnel integrates seamlessly with [Railway Preview Environments](https://docs.railway.app/guides/github-autodeploys) to enable built-in collaboration and feedback workflows for your team.
 
 ## Prerequisites
 
-* Set up Preview Environments in Railway. If you haven't already, follow the [Railway Docs](https://docs.railway.app/guides/github-autodeploys) to set up Railway Preview Environments for your app.
+- Set up Preview Environments in Railway. If you haven't already, follow the [Railway Docs](https://docs.railway.app/guides/github-autodeploys) to set up Railway Preview Environments for your app.
 
 ## Add Tunnel to your app
 
@@ -49,7 +50,7 @@ You can add Tunnel to your Railway Preview Environments using one of our [SDKS](
         <div className="App">
           {(process.env.NODE_ENV !== "development" && process.env.RAILWAY_GIT_BRANCH !== "main") && (
             <TunnelToolbar
-              projectId="PROJECT_ID"
+              projectId={process.env.TUNNEL_PROJECT_ID}
               branch={process.env.RAILWAY_GIT_BRANCH}
             />
           )}
@@ -61,7 +62,7 @@ You can add Tunnel to your Railway Preview Environments using one of our [SDKS](
     ```
 
   </Tab>
-  <Tab title="Next">
+  <Tab title="Next.js (/app)">
     ### Install the Tunnel Next SDK
 
     <CodeGroup>
@@ -97,8 +98,55 @@ You can add Tunnel to your Railway Preview Environments using one of our [SDKS](
             {children}
             {(process.env.NODE_ENV !== "development" && process.env.RAILWAY_GIT_BRANCH !== "main") && (
               <TunnelToolbar
-                projectId="PROJECT_ID"
-                branch={process.env.RAILWAY_GIT_BRANCH}
+                projectId={process.env.NEXT_PUBLIC_TUNNEL_PROJECT_ID}
+                branch={process.env.NEXT_PUBLIC_RAILWAY_GIT_BRANCH}
+              />
+            )}
+          </body>
+        </html>
+      );
+    }
+    ```
+
+  </Tab>
+  <Tab title="Next.js (/pages)">
+    ### Install the Tunnel Next SDK
+
+    <CodeGroup>
+    ```shell npm
+      npm install @tunnel/nextjs
+    ```
+
+    ```shell yarn
+      yarn add @tunnel/nextjs
+    ```
+
+    ```shell pnpm
+      pnpm add @tunnel/nextjs
+    ```
+    </CodeGroup>
+
+    ### Add the `<TunnelToolbar />` component to your app
+
+    To enable Tunnel in your app, conditionally Railway the `<TunnelToolbar />` component in your app. Developers usually only Railway the `<TunnelToolbar />` component in your app when it is running in a Railway Preview Environment environment.
+
+    The `<TunnelToolbar />` component requires a `projectId` prop and a `branch` prop.
+
+    - `projectId` is the ID of your Tunnel project. You can find your project ID in the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default).
+    - `branch` is the branch name of the Railway Preview Environment. Railway automatically injects the `RAILWAY_GIT_BRANCH` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
+
+    ```jsx layout.jsx
+    import { TunnelToolbar } from '@tunnel/nextjs';
+
+    export default function RootLayout({ children }) {
+      return (
+        <html lang="en">
+          <body>
+            {children}
+            {(process.env.NODE_ENV !== "development" && process.env.RAILWAY_GIT_BRANCH !== "main") && (
+              <TunnelToolbar
+                projectId={process.env.NEXT_PUBLIC_TUNNEL_PROJECT_ID}
+                branch={process.env.NEXT_PUBLIC_RAILWAY_GIT_BRANCH}
               />
             )}
           </body>

@@ -2,6 +2,7 @@
 title: Zeet
 description: Using Tunnel with Zeet
 ---
+
 # Using Tunnel with Zeet
 
 Tunnel integrates seamlessly with [Zeet Preview Environments](https://docs.zeet.co/deployments/preview-branches/) to enable built-in collaboration and feedback workflows for your team.
@@ -12,7 +13,7 @@ Tunnel integrates seamlessly with [Zeet Preview Environments](https://docs.zeet.
 
 ## Prerequisites
 
-* Set up Preview Environments in Zeet. If you haven't already, follow the [Zeet Docs](https://docs.zeet.co/deployments/preview-branches/) to set up Zeet Preview Environments for your app.
+- Set up Preview Environments in Zeet. If you haven't already, follow the [Zeet Docs](https://docs.zeet.co/deployments/preview-branches/) to set up Zeet Preview Environments for your app.
 
 ## Add Tunnel to your app
 
@@ -43,7 +44,7 @@ You can add Tunnel to your Zeet Preview Environments using one of our [SDKS](/sd
     The `<TunnelToolbar />` component requires a `projectId` prop and a `branch` prop.
 
     - `projectId` is the ID of your Tunnel project. You can find your project ID in the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default).
-    - `branch` is the branch name of the Zeet Preview Environment . Zeet automatically injects the `Zeet_GIT_BRANCH` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
+    - `branch` is the branch name of the Zeet Preview Environment . Zeet automatically injects the `ZEET_ENVIRONMENT` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
 
     ```jsx App.jsx
     import { TunnelToolbar } from '@tunnel/react';
@@ -51,10 +52,10 @@ You can add Tunnel to your Zeet Preview Environments using one of our [SDKS](/sd
     function App() {
       return (
         <div className="App">
-          {(process.env.NODE_ENV !== "development" && process.env.Zeet_GIT_BRANCH !== "main") && (
+          {(process.env.NODE_ENV !== "development" && process.env.ZEET_ENVIRONMENT !== "main") && (
             <TunnelToolbar
-              projectId="PROJECT_ID"
-              branch={process.env.Zeet_GIT_BRANCH}
+              projectId={process.env.TUNNEL_PROJECT_ID}
+              branch={process.env.ZEET_ENVIRONMENT}
             />
           )}
         </div>
@@ -65,7 +66,7 @@ You can add Tunnel to your Zeet Preview Environments using one of our [SDKS](/sd
     ```
 
   </Tab>
-  <Tab title="Next">
+  <Tab title="Next.js (/app)">
     ### Install the Tunnel Next SDK
 
     <CodeGroup>
@@ -99,16 +100,60 @@ You can add Tunnel to your Zeet Preview Environments using one of our [SDKS](/sd
         <html lang="en">
           <body>
             {children}
-            {(process.env.NODE_ENV !== "development" && process.env.Zeet_GIT_BRANCH !== "main") && (
+            {(process.env.NODE_ENV !== "development" && process.env.NEXT_PUBLIC_ZEET_ENVIRONMENT !== "main") && (
               <TunnelToolbar
-                projectId="PROJECT_ID"
-                branch={process.env.Zeet_GIT_BRANCH}
+                projectId={process.env.NEXT_PUBLIC_TUNNEL_PROJECT_ID}
+                branch={process.env.NEXT_PUBLIC_ZEET_ENVIRONMENT}
               />
             )}
           </body>
         </html>
       );
     }
+    ```
+
+  </Tab>
+    <Tab title="Next.js (/pages)">
+    ### Install the Tunnel Next SDK
+
+    <CodeGroup>
+    ```shell npm
+      npm install @tunnel/nextjs
+    ```
+
+    ```shell yarn
+      yarn add @tunnel/nextjs
+    ```
+
+    ```shell pnpm
+      pnpm add @tunnel/nextjs
+    ```
+    </CodeGroup>
+
+    ### Add the `<TunnelToolbar />` component to your app
+
+    To enable Tunnel in your app, conditionally Zeet the `<TunnelToolbar />` component in your app. Developers usually only Zeet the `<TunnelToolbar />` component in your app when it is running in a Zeet Preview Environment environment.
+
+    The `<TunnelToolbar />` component requires a `projectId` prop and a `branch` prop.
+
+    - `projectId` is the ID of your Tunnel project. You can find your project ID in the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default).
+    - `branch` is the branch name of the Zeet Preview Environment. Zeet automatically injects the `ZEET_ENVIRONMENT` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
+
+    ```javascript _app.jsx
+      import { TunnelToolbar } from '@tunnel/nextjs';
+
+      export default function MyApp({ Component, pageProps }: AppProps) {
+        return (
+          <>
+            <Component {...pageProps} />
+            {(process.env.NODE_ENV !== "development") && (
+              <TunnelToolbar
+                projectId={process.env.NEXT_PUBLIC_TUNNEL_PROJECT_ID}
+                branch={process.env.NEXT_PUBLIC_ZEET_ENVIRONMENT}
+              />
+            )}
+        );
+      }
     ```
 
   </Tab>

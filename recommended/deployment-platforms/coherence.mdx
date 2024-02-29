@@ -14,6 +14,7 @@ description: Using Tunnel with Coherence
 ## Why choose Coherence?
 
 With Coherence, you can easily provision automated environments for developing, testing, and deploying your app in the cloud, with:
+
 - Preview Deployments, Managed CI/CD, and Production Hosting
 - Your AWS/GCP account and credits
 - No vendor lock-in
@@ -24,7 +25,7 @@ Tunnel integrates seamlessly with [Coherence Branch Previews](https://docs.withc
 
 ## Prerequisites
 
-* Set up preview environments in Coherence. If you haven't already, follow the [Coherence Docs](https://docs.withcoherence.com/) to set up Coherence Branch Previews for your app.
+- Set up preview environments in Coherence. If you haven't already, follow the [Coherence Docs](https://docs.withcoherence.com/) to set up Coherence Branch Previews for your app.
 
 ## Add Tunnel to your app
 
@@ -65,7 +66,7 @@ You can add Tunnel to your Coherence Branch Previews using one of our [SDKS](/sd
         <div className="App">
           {(process.env.NODE_ENV !== "development" && process.env.COHERENCE_ENVIRONMENT_NAME !== "main") && (
             <TunnelToolbar
-              projectId="PROJECT_ID"
+              projectId={process.env.TUNNEL_PROJECT_ID}
               branch={process.env.COHERENCE_ENVIRONMENT_NAME}
             />
           )}
@@ -77,7 +78,7 @@ You can add Tunnel to your Coherence Branch Previews using one of our [SDKS](/sd
     ```
 
   </Tab>
-  <Tab title="Next">
+  <Tab title="Next.js (/app)">
     ### Install the Tunnel Next SDK
 
     <CodeGroup>
@@ -113,14 +114,58 @@ You can add Tunnel to your Coherence Branch Previews using one of our [SDKS](/sd
             {children}
             {(process.env.NODE_ENV !== "development" && process.env.COHERENCE_ENVIRONMENT_NAME !== "main") && (
               <TunnelToolbar
-                projectId="PROJECT_ID"
-                branch={process.env.COHERENCE_ENVIRONMENT_NAME}
+                projectId={process.env.NEXT_PUBLIC_TUNNEL_PROJECT_ID}
+                branch={process.env.NEXT_PUBLIC_COHERENCE_ENVIRONMENT_NAME}
               />
             )}
           </body>
         </html>
       );
     }
+    ```
+
+  </Tab>
+  <Tab title="Next.js (/app)">
+    ### Install the Tunnel Next SDK
+
+    <CodeGroup>
+    ```shell npm
+      npm install @tunnel/nextjs
+    ```
+
+    ```shell yarn
+      yarn add @tunnel/nextjs
+    ```
+
+    ```shell pnpm
+      pnpm add @tunnel/nextjs
+    ```
+    </CodeGroup>
+
+    ### Add the `<TunnelToolbar />` component to your app
+
+    To enable Tunnel in your app, conditionally render the `<TunnelToolbar />` component in your app. Developers usually only render the `<TunnelToolbar />` component in your app when it is running in a Coherence Branch Preview environment.
+
+    The `<TunnelToolbar />` component requires a `projectId` prop and a `branch` prop.
+
+    - `projectId` is the ID of your Tunnel project. You can find your project ID in the [Tunnel Dashboard](https://tunnel.dev/redirect-to/default).
+    - `branch` is the branch name of the Coherence Branch Preview. Coherence automatically injects the `COHERENCE_ENVIRONMENT_NAME` environment variable, which you can pass directly to the `<TunnelToolbar />` component.
+
+    ```javascript _app.jsx
+      import { TunnelToolbar } from '@tunnel/nextjs';
+
+      export default function MyApp({ Component, pageProps }: AppProps) {
+        return (
+          <>
+            <Component {...pageProps} />
+            {(process.env.NODE_ENV !== "development") && (
+              <TunnelToolbar
+                projectId={process.env.NEXT_PUBLIC_TUNNEL_PROJECT_ID}
+                branch={process.env.NEXT_PUBLIC_COHERENCE_ENVIRONMENT_NAME}
+              />
+            )}
+        );
+      }
     ```
 
   </Tab>

@@ -6,20 +6,24 @@ For full documentation, see our [**React SDK docs**](https://docs.tunnel.dev/doc
   npm install @tunnel/react
   ```
 
-  ```shell yarn
-  yarn add @tunnel/react
-  ```
+```shell yarn
+yarn add @tunnel/react
+```
 
-  ```shell pnpm
-  pnpm add @tunnel/react
-  ```
+```shell pnpm
+pnpm add @tunnel/react
+```
+
 </CodeGroup>
 </Step>
 <Step title="Add the Tunnel Toolbar to your app">
 To enable Tunnel in your app, render the `<TunnelToolbar />` component in your app.
 
 <ParamField path="projectId" required>
-  The `<TunnelToolbar />` component requires a `projectId` prop. You can find your Project ID in the Tunnel Dashboard by navigating to [**Projects**](https://tunnel.dev/projects) > ***Your Project*** > **Settings**.
+  The `<TunnelToolbar />` component requires a `projectId` prop. You can find
+  your Project ID in the Tunnel Dashboard by navigating to
+  [**Projects**](https://tunnel.dev/projects) > ***Your Project*** >
+  **Settings**.
 </ParamField>
 
 ```javascript App.jsx
@@ -29,12 +33,8 @@ export default function App() {
   return (
     <Steps>
       <div>
-        {/**
-          Conditionally render the Tunnel Toolbar when the app is not in dev mode.
-          For more examples, see https://docs.tunnel.dev/docs/when-to-render-the-tunnel-toolbar
-        */}
         {process.env.NODE_ENV !== "development" && (
-          <TunnelToolbar 
+          <TunnelToolbar
             projectId={process.env.TUNNEL_PROJECT_ID}
           />
         )};
@@ -44,5 +44,10 @@ export default function App() {
   );
 }
 ```
+
+<Tip>
+  The snippet above only renders the Tunnel Toolbar in development. Depending on your use case, you will want to update the conditional
+  to render the toolbar in specific environments (development, staging, production) or for specific users (everyone, certain customers, or just employees).
+</Tip>
 </Step>
 </Steps>
