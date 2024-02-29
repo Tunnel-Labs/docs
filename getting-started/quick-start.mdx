@@ -2,24 +2,33 @@
 title: Quick Start
 description: Get started with Tunnel
 ---
-import ReactSdk from '/snippets/react-sdk.mdx';
-import NextjsSdk from '/snippets/nextjs-sdk.mdx';
-import OtherFrameworks from '/snippets/other-frameworks.mdx';
+
+import ReactSdk from "/snippets/react-sdk.mdx";
+import NextjsApp from "/snippets/nextjs-app.mdx";
+import NextjsPages from "/snippets/nextjs-pages.mdx";
+import OtherFrameworks from "/snippets/other-frameworks.mdx";
 
 ## Find your Project ID
+
 To copy your Project ID, navigate to the [Tunnel Dashboard](https://tunnel.dev/projects), select your project, and go to **Settings** to copy your project ID.
+
 <Frame>
   <img src="/assets/screenshots/quick-start/copy-project-id.png" />
 </Frame>
 
 ## Add the Tunnel Toolbar to your app
+
 To enable Tunnel in your app, add the `<TunnelToolbar />` component to your app. For now, we have specialized SDKs for React and Next.js apps, but if you're using another framework, you can still use Tunnel by adding the `<script>` tag to your app.
+
 <Tabs>
   <Tab title="React">
     <ReactSdk />
   </Tab>
-  <Tab title="Next.js">
-    <NextjsSdk />
+  <Tab title="Next.js (/app)">
+    <NextjsApp />
+  </Tab>
+  <Tab title="Next.js (/pages)">
+    <NextjsPages />
   </Tab>
   <Tab title="Other frameworks">
     <OtherFrameworks />
@@ -27,7 +36,9 @@ To enable Tunnel in your app, add the `<TunnelToolbar />` component to your app.
 </Tabs>
 
 ## Deploy!
+
 You're all set! Now you can start using Tunnel in your app. Deploy your app to a preview environment to see the Tunnel Toolbar in action.
+
 <Frame>
   <img src="/assets/screenshots/quick-start/staging-screenshot.png" />
 </Frame>
